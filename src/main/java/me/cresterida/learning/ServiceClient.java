@@ -14,8 +14,10 @@ public class ServiceClient
     public void sayHello()
     {
         log.info("Sending a greeting");
-        log.info(System.getenv("MY_HOST")   );
-        greeter.sayHello(io.quarkus.grpc.example.HelloRequest.newBuilder().setName("World").build())
+        log.info(System.getenv("MY_HOST") );
+        String defaultName = "Guest";
+        String nameToSend = System.getenv("NAME") != null ? System.getenv("NAME") : defaultName;
+        greeter.sayHello(io.quarkus.grpc.example.HelloRequest.newBuilder().setName(nameToSend).build())
                 .subscribe().with(reply -> System.out.println(reply.getMessage()));
     }
 }
