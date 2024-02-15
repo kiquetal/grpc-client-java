@@ -15,6 +15,7 @@ public class ServiceClient
     {
         log.info("Sending a greeting");
         log.info(System.getenv("MY_HOST") );
+        log.info(System.getenv("GRPC_HOST") );
         String defaultName = "Guest";
         String nameToSend = System.getenv("NAME") != null ? System.getenv("NAME") : defaultName;
         greeter.sayHello(io.quarkus.grpc.example.HelloRequest.newBuilder().setName(nameToSend).build())
