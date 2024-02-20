@@ -40,7 +40,9 @@ jobs:
           password: ${{ secrets.GH_PAT }}
       - name: Obtain the repository name
         id: get_repo_name
-        run: echo "REPOSITORY_NAME=$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT && echo $REPOSITORY_NAME
+        run: echo "REPOSITORY_NAME=$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+      - name: Read the repository name
+        run: echo "The repository name is ${steps.get_repo_name.outputs.REPOSITORY_NAME}"
       - name: Build and push Docker image
         uses: docker/build-push-action@v5.1.0
         with:
