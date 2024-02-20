@@ -23,6 +23,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
             context: .
-            dockerfile: src/main/docker/Dockerfile.jvm
+            file: src/main/docker/Dockerfile.jvm
             push: true
             tags: ghcr.io/${{ github.repository_owner }}/grpc-client-java:${{ github.sha }}
