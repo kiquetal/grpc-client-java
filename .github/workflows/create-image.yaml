@@ -13,7 +13,7 @@ jobs:
           node-version: '20.x'
       - name: Build and push the image
         run: |
-          docker build -t ghcr.io/kiquetal/grpc-client-java: src/main/docker/Dockerfile.jvm
+          docker build -t ghcr.io/kiquetal/grpc-client-java:latest src/main/docker/Dockerfile.jvm
           echo ${{ secrets.GH_PAT }} | docker login -u kiquetal --password-stdin
           docker push ghcr.io/kiquetal/grpc-client-java:latest
 
