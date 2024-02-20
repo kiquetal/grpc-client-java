@@ -46,4 +46,4 @@ jobs:
             context: .
             file: src/main/docker/Dockerfile.jvm
             push: true
-            tags: ghcr.io/${{ github.repository_owner }}/grpc-client-java:latest-v2
+            tags: ghcr.io/${{ github.repository_owner }}/grpc-client-java:{{ github.sha }}
